@@ -30,7 +30,7 @@ function calculateImpact(currentlyInfected, data) {
     0.02 * infectionsByRequestedTime
   );
   const avgLoss = avgDailyIncomePopulation / days;
-  const dollarsInFlight = infectionsByRequestedTime * avgDailyIncomeInUSD * avgLoss;
+  const dollarsInFlight = Math.trunc(infectionsByRequestedTime * avgDailyIncomeInUSD * avgLoss);
   /* const  = avgLoss; */
   const result = {
     currentlyInfected,
