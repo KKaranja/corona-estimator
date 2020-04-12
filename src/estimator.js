@@ -20,13 +20,13 @@ function calculateImpact(currentlyInfected, data) {
   } = region;
   const factor = Math.trunc(days / 3);
   const infectionsByRequestedTime = currentlyInfected * (2 ** factor);
-  const severeCasesByRequestTime = 0.15 * infectionsByRequestedTime;
-  const beds = (0.35 * totalHospitalBeds) - severeCasesByRequestTime;
-  const hospitalBedsByRequestTime = Math.trunc(beds);
+  const severeCasesByRequestedTime = 0.15 * infectionsByRequestedTime;
+  const beds = (0.35 * totalHospitalBeds) - severeCasesByRequestedTime;
+  const hospitalBedsByRequestedTime = Math.trunc(beds);
   const casesForICUByRequestedTime = Math.trunc(
     0.05 * infectionsByRequestedTime
   );
-  const casesForVentilatorsByRequestTime = Math.trunc(
+  const casesForVentilatorsByRequestedTime = Math.trunc(
     0.02 * infectionsByRequestedTime
   );
   const avgLoss = infectionsByRequestedTime * avgDailyIncomeInUSD * avgDailyIncomePopulation * days;
@@ -34,10 +34,10 @@ function calculateImpact(currentlyInfected, data) {
   const result = {
     currentlyInfected,
     infectionsByRequestedTime,
-    severeCasesByRequestTime,
-    hospitalBedsByRequestTime,
+    severeCasesByRequestedTime,
+    hospitalBedsByRequestedTime,
     casesForICUByRequestedTime,
-    casesForVentilatorsByRequestTime,
+    casesForVentilatorsByRequestedTime,
     dollarsInFlight
   };
   return result;
