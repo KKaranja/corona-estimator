@@ -1,4 +1,3 @@
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -10,7 +9,10 @@ const xmlParser = require('./fast-xml-parser');
 
 const app = express();
 const writeStream = fs.createWriteStream(
-    path.join(__dirname, '/logs/app.log'), { flags: 'a', encoding: 'utf8' }
+    path.join(__dirname, '/logs/app.log'), {
+    flags: 'a',
+    encoding: 'utf8'
+}
 );
 const logFormat = ':method\t:url\t:status\t:response-time';
 app.use(morgan(logFormat, {
@@ -34,7 +36,9 @@ const appRoot = path.dirname(require.main.filename);
 
 
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.get('/', (req, res) => {
     res.send('hello sever');
 });
@@ -43,10 +47,17 @@ app.get('/', (req, res) => {
 });
 app.post('/api/v1/on-covid-19', (req, res) => {
     const {
-        name, avgAge, avgDailyIncomeInUSD, avgDailyIncomePopulation
+        name,
+        avgAge,
+        avgDailyIncomeInUSD,
+        avgDailyIncomePopulation
     } = req.body.region;
     const {
-        periodType, timeToElapse, reportedCases, population, totalHospitalBeds
+        periodType,
+        timeToElapse,
+        reportedCases,
+        population,
+        totalHospitalBeds
     } = req.body;
     const inputData = {
         region: {
@@ -71,10 +82,17 @@ app.post('/api/v1/on-covid-19', (req, res) => {
 
 app.post('/api/v1/on-covid-19/json', (req, res) => {
     const {
-        name, avgAge, avgDailyIncomeInUSD, avgDailyIncomePopulation
+        name,
+        avgAge,
+        avgDailyIncomeInUSD,
+        avgDailyIncomePopulation
     } = req.body.region;
     const {
-        periodType, timeToElapse, reportedCases, population, totalHospitalBeds
+        periodType,
+        timeToElapse,
+        reportedCases,
+        population,
+        totalHospitalBeds
     } = req.body;
     const inputData = {
         region: {
@@ -99,10 +117,17 @@ app.post('/api/v1/on-covid-19/json', (req, res) => {
 
 app.post('/api/v1/on-covid-19/xml', (req, res) => {
     const {
-        name, avgAge, avgDailyIncomeInUSD, avgDailyIncomePopulation
+        name,
+        avgAge,
+        avgDailyIncomeInUSD,
+        avgDailyIncomePopulation
     } = req.body.region;
     const {
-        periodType, timeToElapse, reportedCases, population, totalHospitalBeds
+        periodType,
+        timeToElapse,
+        reportedCases,
+        population,
+        totalHospitalBeds
     } = req.body;
     const inputData = {
         region: {
@@ -120,7 +145,9 @@ app.post('/api/v1/on-covid-19/xml', (req, res) => {
 
 
     const data = estimator(inputData);
-    const xmlOutput = xmlParser.parse({ root: data });
+    const xmlOutput = xmlParser.parse({
+        root: data
+    });
     res.set('Content-Type', 'application/xml');
     res.status(200);
     res.send(xmlOutput);
