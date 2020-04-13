@@ -114,7 +114,6 @@ app.post('/api/v1/on-covid-19/json', (req, res) => {
 
     res.status(200).json(data);
 });
-
 app.post('/api/v1/on-covid-19/xml', (req, res) => {
     const {
         name,
@@ -142,9 +141,7 @@ app.post('/api/v1/on-covid-19/xml', (req, res) => {
         population,
         totalHospitalBeds
     };
-
-
-    const data = estimator(inputData);
+const data = estimator(inputData);
     const xmlOutput = xmlParser.parse({
         root: data
     });
@@ -168,8 +165,6 @@ app.get('/logs', (req, res) => {
     res.status(200);
     res.sendFile(`${appRoot}/logs/app.log`);
 });
-
-
 exports.getLogs = (req, res) => {
     res.status(200);
     res.sendFile(`${appRoot}/logs/app.log`);
