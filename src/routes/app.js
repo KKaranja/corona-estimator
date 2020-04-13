@@ -5,7 +5,7 @@ const fs = require('fs');
 const morgan = require('morgan');
 const covid19ImpactEstimator = require('../estimator.js');
 const estimator = require('../estimator.js');
-const xmlParser = require('./fast-xml-parser');
+const xmlParser = require('./xml-parser');
 
 const app = express();
 const writeStream = fs.createWriteStream(
