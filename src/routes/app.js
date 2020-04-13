@@ -6,7 +6,6 @@ const morgan = require('morgan');
 const covid19ImpactEstimator = require('../estimator.js');
 const estimator = require('../estimator.js');
 const xmlParser = require('./xml-parser');
-
 const app = express();
 const writeStream = fs.createWriteStream(
     path.join(__dirname, '/logs/app.log'), {
@@ -33,8 +32,6 @@ app.use(morgan(logFormat, {
     }
 }));
 const appRoot = path.dirname(require.main.filename);
-
-
 app.use(express.json());
 app.use(bodyParser.urlencoded({
     extended: true
@@ -72,14 +69,11 @@ app.post('/api/v1/on-covid-19', (req, res) => {
         population,
         totalHospitalBeds
     };
-
-
     const data = estimator(inputData);
     res.type('application/json');
     res.set('Content-Type', 'application/json');
     res.status(200).json(data);
 });
-
 app.post('/api/v1/on-covid-19/json', (req, res) => {
     const {
         name,
@@ -107,8 +101,6 @@ app.post('/api/v1/on-covid-19/json', (req, res) => {
         population,
         totalHospitalBeds
     };
-
-
     const data = estimator(inputData);
     res.type('application/json');
 

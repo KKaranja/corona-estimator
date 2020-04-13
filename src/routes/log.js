@@ -4,14 +4,12 @@ const path = require('path');
 const appRoot = path.dirname(require.main.filename); 
 const options = {
     file: {
-        // level: 'info',
         filename: `${appRoot}/logs/app.log`,
         handleExceptions: false,
         json: false,
-        maxsize: 5242880, // 5MB
+        maxsize: 5242880, 
         maxFiles: 5,
-        colorize: false
-    },
+        colorize: false },
     console: {
         
         handleExceptions: false,
@@ -19,7 +17,6 @@ const options = {
         colorize: true
     }
 };
-
 const logger = winston.createLogger({
     transports: [
         new winston.transports.File(options.file),
@@ -27,16 +24,11 @@ const logger = winston.createLogger({
     ],
     exitOnError: false 
 });
-
-
 logger.stream = {
     write(message) {
         
         logger.log(`${message}ms`);
     }
 };
-
-// include winston logging e.g. in error handler in app.js
-// winston.error(`${req.method} \t\t ${req.url} \t\t ${err.status || 500}`);
 
 module.exports = logger;
