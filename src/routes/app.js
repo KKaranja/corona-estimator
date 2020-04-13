@@ -9,9 +9,9 @@ const xmlParser = require('./xml-parser');
 const app = express();
 const writeStream = fs.createWriteStream(
 	path.join(__dirname, '/logs/app.log'), {
-	flags: 'a',
-	encoding: 'utf8'
-}
+		flags: 'a',
+		encoding: 'utf8'
+	}
 );
 const logFormat = ':method\t:url\t:status\t:response-time';
 app.use(morgan(logFormat, {
