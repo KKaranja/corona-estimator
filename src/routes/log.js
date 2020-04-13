@@ -3,33 +3,33 @@ const path = require('path');
 
 const appRoot = path.dirname(require.main.filename);
 const options = {
-	file: {
-		filename: `${appRoot}/logs/app.log`,
-		handleExceptions: false,
-		json: false,
-		maxsize: 5242880,
-		maxFiles: 5,
-		colorize: false
-	},
-	console: {
+  file: {
+    filename: `${appRoot}/logs/app.log`,
+    handleExceptions: false,
+    json: false,
+    maxsize: 5242880,
+    maxFiles: 5,
+    colorize: false
+  },
+  console: {
 
-		handleExceptions: false,
-		json: false,
-		colorize: true
-	}
+    handleExceptions: false,
+    json: false,
+    colorize: true
+  }
 };
 const logger = winston.createLogger({
-	transports: [
-		new winston.transports.File(options.file),
-		new winston.transports.Console(options.console)
-	],
-	exitOnError: false
+  transports: [
+    new winston.transports.File(options.file),
+    new winston.transports.Console(options.console)
+  ],
+  exitOnError: false
 });
 logger.stream = {
-	write(message) {
+  write(message) {
 
-		logger.log(`${message}ms`);
-	}
+    logger.log(`${message}ms`);
+  }
 };
 
 module.exports = logger;
