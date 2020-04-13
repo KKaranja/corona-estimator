@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 const express = require('express');
 
 const bodyParser = require('body-parser');
