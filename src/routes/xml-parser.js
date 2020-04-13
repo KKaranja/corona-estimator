@@ -5,6 +5,7 @@ module.exports = parser;
 const winston = require('winston');
 
 const path = require('path');
+
 const appRoot = path.dirname(require.main.filename);
 const options = {
   file: {
