@@ -12,7 +12,6 @@ const options = {
     colorize: false
   },
   console: {
-
     handleExceptions: false,
     json: false,
     colorize: true
@@ -27,7 +26,6 @@ const logger = winston.createLogger({
 });
 logger.stream = {
   write(message) {
-
     logger.log(`${message}ms`);
   }
 };
