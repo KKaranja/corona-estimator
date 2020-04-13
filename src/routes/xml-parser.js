@@ -1,7 +1,8 @@
 const Parser = require('fast-xml-parser').j2xParser;
 
 const parser = new Parser();
-module.exports = parser;const winston = require('winston');
+module.exports = parser;
+const winston = require('winston');
 const path = require('path');
 
 const appRoot = path.dirname(require.main.filename); // will fail if using a launcher like pm2

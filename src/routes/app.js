@@ -185,10 +185,8 @@ app.post('/json', (req, res) => {
     };
     const output = covid19ImpactEstimator(data);
     res.type('application/json');
-    res.status(200).json(output);
-
-
-    const data = estimator(inputData);
+	res.status(200).json(output);
+	const data = estimator(inputData);
 
     res.status(200).json(data);
 });
