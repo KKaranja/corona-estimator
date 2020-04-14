@@ -1,8 +1,8 @@
 /* eslint-disable no-use-before-define */
 const express = require('express');
 
-let admin = require('firebase-admin');
-let serviceAccount = require('src/serviceAccountKey.json');
+const admin = require('firebase-admin');
+const serviceAccount = require('src/serviceAccountKey.json');
 const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
