@@ -1,6 +1,8 @@
 /* eslint-disable no-use-before-define */
 const express = require('express');
 
+let admin = require('firebase-admin');
+let serviceAccount = require('src/serviceAccountKey.json');
 const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
@@ -9,8 +11,7 @@ const covid19ImpactEstimator = require('../estimator.js');
 const estimator = require('../estimator.js');
 const xmlParser = require('./xml-parser');
 
-var admin = require('firebase-admin');
-var serviceAccount = require('src/serviceAccountKey.json');
+let serviceAccount = require('src/serviceAccountKey.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
