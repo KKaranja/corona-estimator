@@ -1,3 +1,7 @@
 body {
     background-color: bisque;
 }
+
+.container {
+    max-width: 706px;
+}
