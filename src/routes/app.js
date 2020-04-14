@@ -9,6 +9,14 @@ const covid19ImpactEstimator = require('../estimator.js');
 const estimator = require('../estimator.js');
 const xmlParser = require('./xml-parser');
 
+var admin = require('firebase-admin');
+var serviceAccount = require('src/routes/serviceAccountKey.json');
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://corona-app-220fd.firebaseio.com'
+});
+
 
 const app = express();
 const writeStream = fs.createWriteStream(
