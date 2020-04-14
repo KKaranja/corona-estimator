@@ -2,7 +2,7 @@
 const express = require('express');
 
 const admin = require('firebase-admin');
-const serviceAccount = require('src/corona-app-firebaes.json');
+const serviceAccount = require('./corona-app-firebaes.json');
 const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
