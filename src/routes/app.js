@@ -10,7 +10,7 @@ const estimator = require('../estimator.js');
 const xmlParser = require('./xml-parser');
 
 var admin = require('firebase-admin');
-var serviceAccount = require('src/routes/serviceAccountKey.json');
+var serviceAccount = require('src/serviceAccountKey.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
