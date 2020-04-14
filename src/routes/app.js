@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 const express = require('express');
 
 const bodyParser = require('body-parser');
@@ -185,5 +184,4 @@ app.post('/json', (req, res) => {
   const data = estimator(inputData);
   res.status(200).json(data);
 });
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`server running on port ${PORT}`));
+const PORT = 5000;
