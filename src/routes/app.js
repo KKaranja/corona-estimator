@@ -185,5 +185,5 @@ app.post('/json', (req, res) => {
   const data = estimator(inputData);
   res.status(200).json(data);
 });
-const PORT =  5000;
+const PORT =5000;
 app.listen(PORT, () => console.log(`server running on port ${PORT}`));
