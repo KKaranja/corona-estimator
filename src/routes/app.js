@@ -2,12 +2,12 @@
 const express = require('express');
 
 const admin = require('firebase-admin');
-const serviceAccount = require('./corona-app-firebaes.json');
 const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
 const morgan = require('morgan');
 const covid19ImpactEstimator = require('../estimator.js');
+const serviceAccount = require('./corona-app-firebaes.json');
 const estimator = require('../estimator.js');
 const xmlParser = require('./xml-parser');
 
