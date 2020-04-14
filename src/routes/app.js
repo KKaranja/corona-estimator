@@ -1,13 +1,20 @@
 /* eslint-disable no-use-before-define */
 const express = require('express');
 
+const admin = require('firebase-admin');
 const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
 const morgan = require('morgan');
 const covid19ImpactEstimator = require('../estimator.js');
+const serviceAccount = require('./corona-app-firebaes.json');
 const estimator = require('../estimator.js');
 const xmlParser = require('./xml-parser');
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://corona-app-220fd.firebaseio.com'
+});
 
 
 const app = express();
@@ -185,5 +192,5 @@ app.post('/json', (req, res) => {
   const data = estimator(inputData);
   res.status(200).json(data);
 });
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 app.listen(PORT, () => console.log(`server running on port ${PORT}`));
