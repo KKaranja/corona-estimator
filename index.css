@@ -6,11 +6,16 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: left;
-
     background-color: #ABDAE1 !important;
-
 }
 
 .container {
     max-width: 706px !important;
+}
+
+#submit-btn {
+    font-size: 22px;
+    color: #fff;
+    background-color: rgba(0, 37, 255, 0.88);
+    border-color: rgba(31, 82, 134, 0.71);
 }
